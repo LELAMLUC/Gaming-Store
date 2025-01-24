@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECECEC"
+    tools:context=".activity.RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Design By \nLe Lam Luc"
+        android:textColor="#7c42c9"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister2"
+        app:layout_constraintVertical_bias="1.0" />
+<!--    edt-PassRegister-->
+    <EditText
+        android:id="@+id/edtPassRegister"
+        android:layout_width="330dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="  Mật Khẩu"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtOTP" />
+<!--    edt-PassRegister2-->
+    <EditText
+        android:id="@+id/edtPassRegister2"
+        android:layout_width="330dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="  Nhập lại mật Khẩu"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassRegister" />
+<!--    edt-EmailRegister-->
+    <EditText
+        android:id="@+id/edtEmailRegister"
+        android:layout_width="330dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="34dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="  Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+<!--    edt-OTP-->
+    <EditText
+        android:id="@+id/edtOTP"
+        android:layout_width="200dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="  Nhập OTP"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailRegister" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Đăng Ký Tài Khoản Của Bạn"
+        android:textColor="#7c42c9"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="333dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--    btn-TakeOTP-->
+    <Button
+        android:id="@+id/btnTakeOTP"
+        android:layout_width="111dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/black"
+        android:text="Lấy OTP"
+        android:textSize="16sp"
+        android:onClick="btnTakeOTP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toEndOf="@+id/edtOTP"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailRegister" />
+    <!--    btn-Regíter-->
+    <Button
+        android:id="@+id/btnRegister2"
+        android:layout_width="177dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Đăng Ký"
+        android:textSize="24sp"
+        android:onClick="btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassRegister2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
