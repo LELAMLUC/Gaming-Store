@@ -3,7 +3,10 @@
     android:layout_width="140dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="8dp">
+    android:foreground="@drawable/cyber_ripple"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true">
 
     <!-- FrameLayout chứa ảnh, không bị padding làm ảnh hưởng -->
     <FrameLayout

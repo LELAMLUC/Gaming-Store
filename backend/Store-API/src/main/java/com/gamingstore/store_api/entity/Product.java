@@ -8,12 +8,12 @@ import java.util.List;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // tự động tăng ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private String imageUrl; // Đây có thể là ảnh chính của sản phẩm
+    private String imageUrl;
 
     private double price;
 
@@ -23,17 +23,18 @@ public class Product {
 
     private int categoryId;
 
-    @ElementCollection // Sử dụng @ElementCollection để lưu trữ danh sách URL hình ảnh
-    private List<String> imageUrls; // Danh sách các URL ảnh của sản phẩm
+    private int soldQuantity;   // ✅ Số lượng đã bán
+    @ElementCollection
+    private List<String> imageUrls;
 
     private String description;
 
-    // Constructor không tham số để JPA có thể khởi tạo entity
+    private int quantity; // ✅ Thêm số lượng sản phẩm
+
     public Product() {
     }
 
-    // Constructor với tất cả các thuộc tính
-    public Product(String name, String imageUrl, double price, double rating, int discountPercent, int categoryId, List<String> imageUrls, String description) {
+    public Product(String name, String imageUrl, double price, double rating, int discountPercent, int categoryId, List<String> imageUrls, String description, int quantity) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.price = price;
@@ -42,6 +43,7 @@ public class Product {
         this.categoryId = categoryId;
         this.imageUrls = imageUrls;
         this.description = description;
+        this.quantity = quantity; // ✅ Gán giá trị
     }
 
     // Getter và Setter cho các thuộc tính
@@ -115,5 +117,19 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    public int getSoldQuantity() {
+        return soldQuantity;
+    }
+
+    public void setSoldQuantity(int soldQuantity) {
+        this.soldQuantity = soldQuantity;
     }
 }

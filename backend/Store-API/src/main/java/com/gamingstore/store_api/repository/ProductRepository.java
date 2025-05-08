@@ -12,4 +12,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByCategoryId(int categoryId);
     @Query("SELECT p FROM Product p ORDER BY p.rating DESC")
     List<Product> findTop6ByRating();
+    List<Product> findByNameContainingIgnoreCase(String name);
 }

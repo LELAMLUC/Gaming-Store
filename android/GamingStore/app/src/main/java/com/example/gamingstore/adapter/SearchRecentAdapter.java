@@ -12,9 +12,14 @@ import com.example.gamingstore.R;
 
 import java.util.List;
 
-public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
+public class SearchRecentAdapter extends RecyclerView.Adapter<SearchRecentAdapter.ViewHolder> {
+
+    public interface OnSearchItemClickListener {
+        void onSearchItemClick(String searchQuery);
+    }
 
     private List<String> searchList;
+    private OnSearchItemClickListener listener;
     private OnSearchItemDeleteListener deleteListener;
 
     // Interface để callback về Fragment khi cần xóa
@@ -22,8 +27,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         void onDelete(String searchQuery);
     }
 
-    public SearchAdapter(List<String> searchList, OnSearchItemDeleteListener deleteListener) {
+    public SearchRecentAdapter(List<String> searchList, OnSearchItemClickListener listener, OnSearchItemDeleteListener deleteListener) {
         this.searchList = searchList;
+        this.listener = listener;
         this.deleteListener = deleteListener;
     }
 
@@ -38,9 +44,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         String searchQuery = searchList.get(position);
         holder.tvName.setText(searchQuery);
 
+        // Xử lý sự kiện khi nhấn vào item
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onSearchItemClick(searchQuery);  // Callback khi nhấn vào item
+            }
+        });
+
+        // Xử lý sự kiện xóa item
         holder.deleteIcon.setOnClickListener(v -> {
             if (deleteListener != null) {
-                deleteListener.onDelete(searchQuery); // callback để xóa trong SharedPreferences
+                deleteListener.onDelete(searchQuery); // Callback để xóa trong SharedPreferences
             }
             searchList.remove(position);
             notifyItemRemoved(position);

@@ -9,22 +9,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gamingstore.R;
-import com.example.gamingstore.adapter.SearchAdapter;
+import com.example.gamingstore.adapter.SearchRecentAdapter;
+import com.example.gamingstore.adapter.SearchPopularAdapter;
+import com.example.gamingstore.api.ApiService;
+import com.example.gamingstore.api.RetrofitClient;
+import com.example.gamingstore.model.Product;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SearchFragment extends Fragment {
 
     private EditText edtSearch;
+    private ApiService apiService;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -55,18 +66,39 @@ public class SearchFragment extends Fragment {
             return false;
         });
 
-
         // Tải danh sách tìm kiếm gần đây
         loadRecentSearches(view);
+
+        // Tải danh sách sản phẩm phổ biến
+        loadPopularProducts(view);
 
         return view;
     }
 
     // Hàm xử lý tìm kiếm
     public void onSearch(String searchQuery) {
-        // Thực hiện tìm kiếm và lưu từ khóa vào danh sách recent search
         saveSearch(searchQuery);
+
+        // Tạo Bundle để truyền dữ liệu tìm kiếm
+        Bundle bundle = new Bundle();
+        bundle.putString("searchQuery", searchQuery);  // Truyền từ khóa tìm kiếm
+
+        // Chuyển sang SearchResultFragment và truyền dữ liệu
+        SearchResultFragment searchResultFragment = new SearchResultFragment();
+        searchResultFragment.setArguments(bundle);  // Gửi Bundle vào Fragment
+
+        // Tiến hành thay đổi fragment
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.main, searchResultFragment);
+        transaction.addToBackStack(null);  // Cho phép quay lại fragment trước đó
+
+        // Delay 200ms để cảm giác tự nhiên hơn
+        new android.os.Handler().postDelayed(() -> {
+            transaction.commit();
+        }, 400);
     }
+
+
     private void saveSearch(String searchQuery) {
         SharedPreferences preferences = getActivity().getSharedPreferences("RecentSearches", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -89,8 +121,6 @@ public class SearchFragment extends Fragment {
         Log.d("SearchFragment", "Updated saved searches after adding: " + recentSearches);
     }
 
-
-
     private void loadRecentSearches(View view) {
         SharedPreferences preferences = getActivity().getSharedPreferences("RecentSearches", Context.MODE_PRIVATE);
         Set<String> recentSearches = preferences.getStringSet("recent_searches", new HashSet<>());
@@ -105,11 +135,15 @@ public class SearchFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.SearchRecent);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Cập nhật dữ liệu cho RecyclerView
-        SearchAdapter adapter = new SearchAdapter(searchList, query -> deleteSearch(query));
-
+        // Cập nhật dữ liệu cho RecyclerView với callback sao chép từ khóa vào EditText
+        SearchRecentAdapter adapter = new SearchRecentAdapter(searchList, query -> {
+            edtSearch.setText(query); // Sao chép từ khóa vào EditText
+            onSearch(query);  // Gọi hàm xử lý tìm kiếm
+        }, query -> deleteSearch(query));
         recyclerView.setAdapter(adapter);
     }
+
+
     private void deleteSearch(String searchQuery) {
         SharedPreferences preferences = getActivity().getSharedPreferences("RecentSearches", Context.MODE_PRIVATE);
         Set<String> recentSearches = preferences.getStringSet("recent_searches", new HashSet<>());
@@ -122,4 +156,33 @@ public class SearchFragment extends Fragment {
         }
     }
 
+    // Hàm tải sản phẩm phổ biến từ API
+    private void loadPopularProducts(View view) {
+        RecyclerView recyclerPopular = view.findViewById(R.id.recyclerPopular);  // Lấy RecyclerView mới cho sản phẩm phổ biến
+        recyclerPopular.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Lấy ApiService từ RetrofitClient
+        ApiService apiService = RetrofitClient.getApiService();  // Sử dụng RetrofitClient để lấy ApiService
+        apiService.getTopSellingProducts().enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Product> products = response.body();
+
+                    SearchPopularAdapter adapter = new SearchPopularAdapter(products, product -> {
+                        String query = product.getName();
+                        edtSearch.setText(query);  // Ghi lại từ khóa vào ô tìm kiếm (tùy chọn)
+                        onSearch(query);           // Gọi hàm xử lý tìm kiếm
+                    });
+
+                    recyclerPopular.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Log.e("SearchFragment", "Failed to load popular products", t);
+            }
+        });
+    }
 }

@@ -4,13 +4,12 @@ package com.gamingstore.store_api.controller;
 import com.gamingstore.store_api.entity.Product;
 import com.gamingstore.store_api.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/products")
@@ -34,5 +33,15 @@ public class ProductController {
     @GetMapping("/popular")
     public List<Product> getPopularProducts() {
         return productService.getPopularProducts();
+    }
+    @GetMapping("/top-sellers")
+    public List<Product> getTopSellingProducts() {
+        // Gọi service để lấy top 4 sản phẩm bán chạy nhất
+        return productService.getTopSellingProducts();
+    }
+    @GetMapping("/search/{query}")
+    public ResponseEntity<List<Product>> searchProducts(@PathVariable String query) {
+        List<Product> products = productService.searchProducts(query);
+        return ResponseEntity.ok(products);
     }
 }

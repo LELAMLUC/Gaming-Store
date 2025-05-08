@@ -8,62 +8,6 @@
     android:background="@drawable/bg_all">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/SearchRecent"
-        android:layout_width="380dp"
-        android:layout_height="234dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
-        tools:listitem="@layout/item_search_recent" />
-
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Popular Searches"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SearchRecent" />
-
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Clear All"
-        android:textColor="#0ABDE3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.853"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/imageView58" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Recent Searches"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView58" />
-
     <ImageView
         android:id="@+id/imageView50"
         android:layout_width="24dp"
@@ -96,17 +40,16 @@
         app:layout_constraintVertical_bias="0.47"
         app:srcCompat="@drawable/icon_find" />
 
-
     <EditText
         android:id="@+id/edtEmail3"
-        android:layout_width="230dp"
+        android:layout_width="240dp"
         android:layout_height="42dp"
         android:background="@android:color/transparent"
         android:cursorVisible="true"
         android:ems="10"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:hint="Search gaming products..."
+        android:hint="Search "
         android:imeOptions="actionSearch"
         android:inputType="text"
         android:textColor="#FFFFFF"
@@ -114,9 +57,11 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView56"
         app:layout_constraintEnd_toEndOf="@+id/imageView56"
-        app:layout_constraintStart_toEndOf="@+id/imageView57"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView56"
         app:layout_constraintTop_toTopOf="@+id/imageView56"
         app:layout_constraintVertical_bias="0.0" />
+
 
     <ImageView
         android:id="@+id/imageView58"
@@ -128,20 +73,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView56"
         app:srcCompat="@drawable/vien_xam" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPopular"
-        android:layout_width="380dp"
-        android:layout_height="234dp"
-        android:layout_marginTop="10dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
-        tools:listitem="@layout/item_search_popular" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -159,4 +90,16 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPopular"
+        android:layout_width="393dp"
+        android:layout_height="693dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView58"
+        tools:listitem="@layout/item_popular" />
 </androidx.constraintlayout.widget.ConstraintLayout>

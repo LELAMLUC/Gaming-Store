@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -43,4 +44,10 @@ public interface ApiService {
     Call<List<Product>> getProductsByCategory(@Path("categoryId") long categoryId);
     @GET("api/products/popular")
     Call<List<Product>> getPopularProducts();
+    @GET("/api/products/top-sellers")
+    Call<List<Product>> getTopSellingProducts();
+
+    @GET("api/products/search/{query}")
+    Call<List<Product>> searchProducts(@Path("query") String query);
+
 }
