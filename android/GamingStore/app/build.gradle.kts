@@ -7,7 +7,7 @@ android {
     compileSdk = 35
     defaultConfig {
         applicationId = "com.example.gamingstore"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -31,6 +31,9 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.android.material:material:1.11.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")

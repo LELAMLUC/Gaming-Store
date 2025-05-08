@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button registerButton = findViewById(R.id.btnRegister);
+        TextView registerButton = findViewById(R.id.btnRegister);
         TextView forgotPassButton =findViewById(R.id.btnForgotPass);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override

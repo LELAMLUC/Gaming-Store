@@ -1,12 +1,7 @@
 package com.gamingstore.store_api.controller;
 
-import com.gamingstore.store_api.model.OtpRequest;
 import com.gamingstore.store_api.service.OtpRequestService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/otp_request")

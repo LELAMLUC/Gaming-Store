@@ -1,6 +1,6 @@
 package com.gamingstore.store_api.repository;
 
-import com.gamingstore.store_api.model.OtpRequest;
+import com.gamingstore.store_api.entity.OtpRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

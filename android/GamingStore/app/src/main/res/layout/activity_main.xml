@@ -5,59 +5,157 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECECEC"
+    android:background="@drawable/bg_all"
     tools:context=".activity.MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="401dp"
-        android:layout_height="259dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/logo1"
+    <!--    button Next-->
+
+    <ImageButton
+        android:id="@+id/imgButton"
+        android:layout_width="353dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/cyber_ripple"
+        android:contentDescription="@null"
+        android:foreground="@drawable/cyber_ripple"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/btnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Get Started"
+        android:textColor="#0ABDE3"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgButton"
+        app:layout_constraintEnd_toEndOf="@+id/imgButton"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/imgButton"
+        app:layout_constraintTop_toTopOf="@+id/imgButton"
+        app:layout_constraintVertical_bias="0.52" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/decor1" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="308dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/decor2" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="14dp"
+        android:layout_height="11dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgButton"
+        app:layout_constraintStart_toEndOf="@+id/btnText"
+        app:layout_constraintTop_toTopOf="@+id/imgButton"
+        app:layout_constraintVertical_bias="0.52"
+        app:srcCompat="@drawable/icon_muitenphai" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Cửa Hàng Bán Thiết Bị Chơi Game"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:text="Already a member?"
+        android:textColor="#CCCCCC"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgButton"
+        app:layout_constraintVertical_bias="0.51" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/btnSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Design By \nLe Lam Luc"
-        android:textColor="#7c42c9"
-        android:textSize="16sp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/cyber_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Sign In"
+        android:textColor="#0ABDE3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/imgButton" />
+
+
+    <TextView
+        android:id="@+id/level_up"
+        android:layout_width="128dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="256dp"
+        android:gravity="center_vertical"
+        android:text="@string/level_up"
+        android:textAppearance="@style/level_up"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-<!--    button Next-->
-    <Button
-        android:id="@+id/button"
-        android:layout_width="142dp"
-        android:layout_height="81dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Next"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/premium_gam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="144dp"
+        android:gravity="top"
+        android:lineSpacingExtra="9sp"
+        android:text="@string/premium_gam"
+        android:textAppearance="@style/premium_gam"
+        android:translationY="-4.3sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/experience"
+        android:layout_width="174dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="212dp"
+        android:gravity="top"
+        android:text="@string/experience"
+        android:textAppearance="@style/experience"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/your_gaming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:text="@string/your_gaming"
+        android:textAppearance="@style/your_gaming"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/level_up"
+        app:layout_constraintTop_toTopOf="@+id/level_up" />
 </androidx.constraintlayout.widget.ConstraintLayout>

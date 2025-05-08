@@ -1,10 +1,15 @@
 package com.example.gamingstore.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends BaseActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,22 @@ public class RegisterActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
+        TextView loginButton = findViewById(R.id.btnLogin);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển đến RegisterActivity
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
+    }
     //    Nút Đăng Ký Tài Khoản
     public void btnRegister(View view) {
+        EditText edtName = findViewById(R.id.edtNameRegister);
+        String name = edtName.getText().toString().trim();
+
         // Lấy email, OTP, và mật khẩu từ EditText
         EditText edtEmail = findViewById(R.id.edtEmailRegister);
         String email = edtEmail.getText().toString().trim();
@@ -58,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                 !InputValidator.validatePasswordFields(this, password, password2)) {
             return;
         }
+
         // Gọi API để check OTP
         ApiService apiService = RetrofitClient.getApiService();
         Call<Boolean> call = apiService.verifyOTP(email, enteredOTP);
@@ -67,8 +85,8 @@ public class RegisterActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     boolean isValid = response.body();
                     if (isValid) {
-                        // Gọi API để tạo tài khoản
-                        Call<Boolean> createAccountCall = apiService.createOrChangePassAccount(email, password);
+                        // Gọi API để tạo tài khoản, thêm name vào tham số
+                        Call<Boolean> createAccountCall = apiService.createOrChangePassAccount(name, email, password);
                         createAccountCall.enqueue(new Callback<Boolean>() {
                             @Override
                             public void onResponse(Call<Boolean> call, Response<Boolean> response) {

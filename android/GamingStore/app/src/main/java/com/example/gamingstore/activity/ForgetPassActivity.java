@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ForgetPassActivity extends AppCompatActivity {
+public class ForgetPassActivity extends BaseActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,17 +56,19 @@ public class ForgetPassActivity extends AppCompatActivity {
                 !InputValidator.validatePasswordFields(this, password, password2)) {
             return; // Dừng lại nếu bất kỳ kiểm tra nào không đạt
         }
+
+        // Gọi API để xác thực OTP
         ApiService apiService = RetrofitClient.getApiService();
-        Call<Boolean> call = apiService.verifyOTP(email, enteredOTP);
-        call.enqueue(new Callback<Boolean>() {
+        Call<Boolean> verifyCall = apiService.verifyOTP(email, enteredOTP);
+        verifyCall.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 if (response.isSuccessful()) {
                     boolean isValid = response.body();
                     if (isValid) {
-                        // Gọi API để tạo tài khoản
-                        Call<Boolean> createAccountCall = apiService.createOrChangePassAccount(email, password);
-                        createAccountCall.enqueue(new Callback<Boolean>() {
+                        // Gọi API để thay đổi mật khẩu
+                        Call<Boolean> changePassCall = apiService.changePassword(email, password);
+                        changePassCall.enqueue(new Callback<Boolean>() {
                             @Override
                             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                                 if (response.isSuccessful() && response.body() != null && response.body()) {
@@ -100,8 +102,8 @@ public class ForgetPassActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Lỗi kết nối đến server", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
 
     public void btnTakeOTPForget(View view) {
         EditText edtEmail = findViewById(R.id.edtEmailForget);

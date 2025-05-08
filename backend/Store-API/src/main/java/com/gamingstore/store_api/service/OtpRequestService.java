@@ -1,6 +1,6 @@
 package com.gamingstore.store_api.service;
 
-import com.gamingstore.store_api.model.OtpRequest;
+import com.gamingstore.store_api.entity.OtpRequest;
 import com.gamingstore.store_api.repository.OtpRequestRepository;
 import com.gamingstore.store_api.util.EmailSender;
 import com.gamingstore.store_api.util.GenerateOTP;

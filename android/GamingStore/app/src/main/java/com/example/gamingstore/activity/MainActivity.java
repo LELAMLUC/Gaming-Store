@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.gamingstore.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +27,21 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button nextButton = findViewById(R.id.button);
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton RegisterButton = findViewById(R.id.imgButton);
+        RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Chuyển đến LoginActivity
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                // Chuyển đến RegisterActivity
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+        TextView LoginButton = findViewById(R.id.btnSignIn);
+        LoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển đến Login
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

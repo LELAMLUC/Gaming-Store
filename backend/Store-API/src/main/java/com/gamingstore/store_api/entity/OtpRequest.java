@@ -1,4 +1,4 @@
-package com.gamingstore.store_api.model;
+package com.gamingstore.store_api.entity;
 
 import jakarta.persistence.*;
 

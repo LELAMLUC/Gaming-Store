@@ -28,8 +28,12 @@ public class AccountController {
     }
 
     // Đăng Kí Hoặc Đổi PASS tài khoản ? true :false
-    @PostMapping("/createOrChangePassAccount/{email}/{pass}")
-    public boolean createOrChangePassAccount(@PathVariable String email, @PathVariable String pass) {
-        return accountService.createOrChangePassAccount(email, pass);
+    @PostMapping("/createOrChangePassAccount/{fullname}/{email}/{pass}")
+    public boolean createOrChangePassAccount(@PathVariable String fullname, @PathVariable String email, @PathVariable String pass) {
+        return accountService.createOrChangePassAccount(fullname,email, pass);
+    }
+    @PostMapping("/changePassword/{email}/{pass}")
+    public boolean changePassword(@PathVariable String email, @PathVariable String pass) {
+        return accountService.changePassword(email, pass);
     }
 }

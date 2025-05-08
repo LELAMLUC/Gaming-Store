@@ -1,5 +1,5 @@
 package com.gamingstore.store_api.repository;
-import com.gamingstore.store_api.model.Account;
+import com.gamingstore.store_api.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
