@@ -49,17 +49,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView40"
         app:srcCompat="@drawable/icon_circle" />
 
-    <ImageView
-        android:id="@+id/imageView75"
-        android:layout_width="49dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toEndOf="@+id/imageView74"
-        app:layout_constraintTop_toBottomOf="@+id/textView35"
-        app:srcCompat="@drawable/icon_circle" />
-
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
@@ -74,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.013"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice4" />
+        app:layout_constraintTop_toBottomOf="@+id/tvStock" />
 
     <TextView
         android:id="@+id/textView40"
@@ -90,10 +79,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.011"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView74" />
+        app:layout_constraintTop_toBottomOf="@+id/imgColor" />
 
     <TextView
-        android:id="@+id/tvPrice4"
+        android:id="@+id/tvStock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -104,10 +93,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
 
     <TextView
-        android:id="@+id/tvPrice3"
+        android:id="@+id/tvPrice2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -117,11 +106,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
-        app:layout_constraintStart_toEndOf="@+id/tvPrice2"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintStart_toEndOf="@+id/tvPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameProduct" />
 
     <TextView
-        android:id="@+id/tvPrice2"
+        android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -132,10 +121,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNameProduct" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/tvNameProduct"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -207,7 +196,7 @@
         app:srcCompat="@drawable/khung_product" />
 
     <ImageView
-        android:id="@+id/imageView73"
+        android:id="@+id/imgProduct"
         android:layout_width="299dp"
         android:layout_height="186dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -228,11 +217,11 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toEndOf="@+id/tvPrice3"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintStart_toEndOf="@+id/tvPrice2"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameProduct" />
 
     <ImageView
-        android:id="@+id/imageView74"
+        android:id="@+id/imgColor"
         android:layout_width="49dp"
         android:layout_height="47dp"
         android:layout_marginTop="12dp"
@@ -264,7 +253,7 @@
         app:srcCompat="@drawable/icon_minus" />
 
     <ImageView
-        android:id="@+id/btnMinus3"
+        android:id="@+id/btnPlus"
         android:layout_width="25dp"
         android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView76"
@@ -284,7 +273,7 @@
         app:srcCompat="@drawable/khung_product_nav" />
 
     <ImageView
-        android:id="@+id/imageView78"
+        android:id="@+id/btnCart"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
@@ -297,31 +286,31 @@
         android:id="@+id/imageView79"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView78"
-        app:layout_constraintEnd_toEndOf="@+id/imageView78"
-        app:layout_constraintStart_toStartOf="@+id/imageView78"
-        app:layout_constraintTop_toTopOf="@+id/imageView78"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCart"
+        app:layout_constraintEnd_toEndOf="@+id/btnCart"
+        app:layout_constraintStart_toStartOf="@+id/btnCart"
+        app:layout_constraintTop_toTopOf="@+id/btnCart"
         app:srcCompat="@drawable/icon_cart" />
 
     <ImageView
-        android:id="@+id/imageView81"
+        android:id="@+id/btnBuyNow"
         android:layout_width="144dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/bg_buynow"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView78"
+        app:layout_constraintStart_toEndOf="@+id/btnCart"
         app:layout_constraintTop_toTopOf="@+id/imageView77"
         app:layout_constraintVertical_bias="0.488" />
 
     <ImageView
-        android:id="@+id/imageView82"
+        android:id="@+id/btnAddToCart"
         android:layout_width="144dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/bg_add_to_cart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView81"
+        app:layout_constraintStart_toEndOf="@+id/btnBuyNow"
         app:layout_constraintTop_toTopOf="@+id/imageView77" />
 
     <TextView
@@ -333,10 +322,10 @@
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView82"
-        app:layout_constraintEnd_toEndOf="@+id/imageView82"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddToCart"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddToCart"
         app:layout_constraintStart_toEndOf="@+id/imageView83"
-        app:layout_constraintTop_toTopOf="@+id/imageView82" />
+        app:layout_constraintTop_toTopOf="@+id/btnAddToCart" />
 
     <TextView
         android:id="@+id/textView46"
@@ -346,20 +335,20 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView81"
-        app:layout_constraintEnd_toEndOf="@+id/imageView81"
-        app:layout_constraintStart_toStartOf="@+id/imageView81"
-        app:layout_constraintTop_toTopOf="@+id/imageView81" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnBuyNow"
+        app:layout_constraintEnd_toEndOf="@+id/btnBuyNow"
+        app:layout_constraintStart_toStartOf="@+id/btnBuyNow"
+        app:layout_constraintTop_toTopOf="@+id/btnBuyNow" />
 
     <ImageView
         android:id="@+id/imageView83"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView82"
-        app:layout_constraintEnd_toEndOf="@+id/imageView82"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddToCart"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddToCart"
         app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="@+id/imageView82"
-        app:layout_constraintTop_toTopOf="@+id/imageView82"
+        app:layout_constraintStart_toStartOf="@+id/btnAddToCart"
+        app:layout_constraintTop_toTopOf="@+id/btnAddToCart"
         app:srcCompat="@drawable/icon_oder2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

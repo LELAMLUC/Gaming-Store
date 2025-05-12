@@ -1,6 +1,8 @@
 package com.example.gamingstore.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.gamingstore.R;
+import com.example.gamingstore.activity.ProductDetailActivity;
 import com.example.gamingstore.model.Product;
 
 import java.util.List;
@@ -42,11 +45,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.tvRating.setText(String.valueOf(product.getRating()));
         holder.tvDiscount.setText(product.getDiscountPercent() + "% OFF");
 
-        // Load ảnh bằng Glide
         Glide.with(context)
                 .load(product.getImageUrl())
-                .placeholder(R.drawable.icon_error) // ảnh tạm
+                .placeholder(R.drawable.icon_error)
                 .into(holder.imgProduct);
+
+        // Xử lý click item
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("productName", product.getName());
+            intent.putExtra("productDescription", product.getDescription());
+            context.startActivity(intent);
+            intent.putExtra("productId", product.getId()); // sửa lại key cho đúng
+
+            Log.d("ProductAdapter", "Clicked product ID: " + product.getId());
+        });
     }
 
     @Override

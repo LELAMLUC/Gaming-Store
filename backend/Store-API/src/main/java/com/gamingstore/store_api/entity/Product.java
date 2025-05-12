@@ -23,7 +23,8 @@ public class Product {
 
     private int categoryId;
 
-    private int soldQuantity;   // ✅ Số lượng đã bán
+
+
     @ElementCollection
     private List<String> imageUrls;
 
@@ -31,10 +32,13 @@ public class Product {
 
     private int quantity; // ✅ Thêm số lượng sản phẩm
 
+    private String colors; // ✅ Thêm trường colors để lưu các mã màu
+
+    private int soldQuantity;   // ✅ Số lượng đã bán
     public Product() {
     }
 
-    public Product(String name, String imageUrl, double price, double rating, int discountPercent, int categoryId, List<String> imageUrls, String description, int quantity) {
+    public Product(String name, String imageUrl, double price, double rating, int discountPercent, int categoryId, List<String> imageUrls, String description, int quantity, String colors) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.price = price;
@@ -44,6 +48,7 @@ public class Product {
         this.imageUrls = imageUrls;
         this.description = description;
         this.quantity = quantity; // ✅ Gán giá trị
+        this.colors = colors; // ✅ Thêm gán giá trị cho colors
     }
 
     // Getter và Setter cho các thuộc tính
@@ -118,6 +123,7 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public int getQuantity() {
         return quantity;
     }
@@ -125,11 +131,20 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
     public int getSoldQuantity() {
         return soldQuantity;
     }
 
     public void setSoldQuantity(int soldQuantity) {
         this.soldQuantity = soldQuantity;
+    }
+
+    public String getColors() {
+        return colors;
+    }
+
+    public void setColors(String colors) {
+        this.colors = colors;
     }
 }

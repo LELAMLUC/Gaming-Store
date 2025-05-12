@@ -3,6 +3,7 @@ package com.example.gamingstore.model;
 import java.util.List;
 
 public class Product {
+    private Long id;
     private String name;
     private String imageUrl;
     private double price;
@@ -12,6 +13,35 @@ public class Product {
     private List<String> imageUrls;
     private String description;
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getColors() {
+        return colors;
+    }
+
+    public void setColors(String colors) {
+        this.colors = colors;
+    }
+
+    public int getSoldQuantity() {
+        return soldQuantity;
+    }
+
+    public void setSoldQuantity(int soldQuantity) {
+        this.soldQuantity = soldQuantity;
+    }
+
+    private int quantity; // ✅ Thêm số lượng sản phẩm
+
+    private String colors; // ✅ Thêm trường colors để lưu các mã màu
+
+    private int soldQuantity;   // ✅ Số lượng đã bán
     // Constructor đầy đủ
     public Product(String name, String imageUrl, double price, double rating, int discountPercent, int categoryId, List<String> imageUrls, String description) {
         this.name = name;
@@ -103,5 +133,12 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

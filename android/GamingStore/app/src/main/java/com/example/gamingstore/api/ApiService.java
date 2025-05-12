@@ -49,5 +49,7 @@ public interface ApiService {
 
     @GET("api/products/search/{query}")
     Call<List<Product>> searchProducts(@Path("query") String query);
+    @GET("api/products/product-detail/{id}")
+    Call<Product> getProductById(@Path("id") Long id);
 
 }

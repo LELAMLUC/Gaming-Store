@@ -3,6 +3,7 @@ package com.gamingstore.store_api.controller;
 
 import com.gamingstore.store_api.entity.Product;
 import com.gamingstore.store_api.service.ProductService;
+import com.gamingstore.store_api.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,4 +45,14 @@ public class ProductController {
         List<Product> products = productService.searchProducts(query);
         return ResponseEntity.ok(products);
     }
+    @GetMapping("/product-detail/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) {
+        Optional<Product> product = productService.getProductById(id);
+        if (product.isPresent()) {
+            return ResponseEntity.ok(product.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
