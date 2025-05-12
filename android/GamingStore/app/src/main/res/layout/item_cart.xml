@@ -12,6 +12,20 @@
 
     <!-- Icon trash -->
 
+    <TextView
+        android:id="@+id/tvPrice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="$14.69"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnPlus" />
+
     <ImageView
         android:id="@+id/imgProduct"
         android:layout_width="54dp"
@@ -27,7 +41,7 @@
         android:id="@+id/imgTrash"
         android:layout_width="14dp"
         android:layout_height="15dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginEnd="2dp"
         android:background="@drawable/icon_trash"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +56,7 @@
         android:id="@+id/tvName"
         android:layout_width="233dp"
         android:layout_height="18dp"
+        android:layout_marginTop="-6dp"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:maxLines="1"
@@ -58,87 +73,69 @@
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="6dp"
         android:text="$14.69"
         android:textColor="#00BCD4"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"
         app:layout_constraintTop_toBottomOf="@id/tvName" />
-
-    <!-- Tổng giá bên phải -->
-
-
-    <TextView
-        android:id="@+id/tvQuantity"
-        android:layout_width="27dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
-        android:gravity="center"
-        android:text="1"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView52"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
-
-    <TextView
-        android:id="@+id/tvTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:text="$14.69"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView48"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tvQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
-        app:srcCompat="@drawable/icon_circle" />
-
-    <ImageView
-        android:id="@+id/btnPlus"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:background="@drawable/icon_plus"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView48"
-        app:layout_constraintEnd_toEndOf="@+id/imageView48"
-        app:layout_constraintStart_toStartOf="@+id/imageView48"
-        app:layout_constraintTop_toTopOf="@+id/imageView48" />
-
-    <ImageView
-        android:id="@+id/imageView52"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
-        app:srcCompat="@drawable/icon_circle" />
 
     <ImageView
         android:id="@+id/btnMinus"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView52"
-        app:layout_constraintEnd_toEndOf="@+id/imageView52"
-        app:layout_constraintStart_toStartOf="@+id/imageView52"
-        app:layout_constraintTop_toTopOf="@+id/imageView52"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:srcCompat="@drawable/icon_circle" />
+
+    <ImageView
+        android:id="@+id/btnMinus1"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMinus"
+        app:layout_constraintEnd_toEndOf="@+id/btnMinus"
+        app:layout_constraintStart_toStartOf="@+id/btnMinus"
+        app:layout_constraintTop_toTopOf="@+id/btnMinus"
         app:srcCompat="@drawable/icon_minus" />
+    <!-- Tổng giá bên phải -->
+
+    <ImageView
+        android:id="@+id/btnPlus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnMinus"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:srcCompat="@drawable/icon_circle" />
+
+    <ImageView
+        android:id="@+id/btnPlus1"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPlus"
+        app:layout_constraintEnd_toEndOf="@+id/btnPlus"
+        app:layout_constraintStart_toStartOf="@+id/btnPlus"
+        app:layout_constraintTop_toTopOf="@+id/btnPlus"
+        app:srcCompat="@drawable/icon_plus" />
+
+    <TextView
+        android:id="@+id/tvQuantityNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="1"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnPlus"
+        app:layout_constraintStart_toEndOf="@+id/btnMinus"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>

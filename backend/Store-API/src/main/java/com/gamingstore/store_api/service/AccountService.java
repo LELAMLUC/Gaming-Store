@@ -85,4 +85,16 @@ public class AccountService {
             return false;
         }
     }
+    public Long loginAndGetUserId(String email, String pass) {
+        // Kiểm tra thông tin tài khoản trong cơ sở dữ liệu
+        Account account = accountRepository.findByEmailAndPassword(email, pass); // Tìm tài khoản theo email và mật khẩu
+
+        if (account != null) {
+            // Nếu đăng nhập thành công, trả về userId
+            return account.getId(); // Giả sử Account có phương thức getId() để lấy userId
+        } else {
+            // Nếu đăng nhập không thành công, trả về null
+            return null;
+        }
+    }
 }

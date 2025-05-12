@@ -26,7 +26,8 @@ public interface ApiService {
     Call<Boolean> createOrChangePassAccount(@Path("fullname") String name, @Path("email") String email, @Path("pass") String pass);
 
     @POST("api/accounts/login/{email}/{pass}")
-    Call<Boolean> login(@Path("email") String email, @Path("pass") String pass);
+    Call<Long> login(@Path("email") String email, @Path("pass") String pass);
+
 
     @POST("/changePassword/{email}/{pass}")
     Call<Boolean> changePassword(@Path("email") String email, @Path("pass") String password);
@@ -51,5 +52,11 @@ public interface ApiService {
     Call<List<Product>> searchProducts(@Path("query") String query);
     @GET("api/products/product-detail/{id}")
     Call<Product> getProductById(@Path("id") Long id);
-
+    @POST("api/cart/add/{accountId}/{productId}/{quantity}/{color}")
+    Call<Boolean> addToCart(
+            @Path("accountId") long accountId,
+            @Path("productId") long productId,
+            @Path("quantity") int quantity,
+            @Path("color") String color
+    );
 }

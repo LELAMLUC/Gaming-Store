@@ -13,11 +13,11 @@ public class AccountController {
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
-    // Kiểm tra Login ? true:false
+
     @PostMapping("/login/{email}/{pass}")
-    public boolean login(@PathVariable String email,@PathVariable String pass) {
-        // Gọi dịch vụ để kiểm tra email trong bảng Account
-        return accountService.login(email,pass);  // Trả về true nếu email tồn tại, false nếu không
+    public Long login(@PathVariable String email, @PathVariable String pass) {
+        Long userId = accountService.loginAndGetUserId(email, pass);  // Gọi dịch vụ để lấy ID nếu đăng nhập thành công
+        return userId;  // Trả về ID người dùng
     }
 
     // kiểm tra email đã tồn tại? True : False

@@ -10,135 +10,6 @@
 
 
     <TextView
-        android:id="@+id/textView42"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="Description"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView52" />
-
-    <TextView
-        android:id="@+id/textView41"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="1"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView76"
-        app:layout_constraintStart_toEndOf="@+id/imageView52"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
-
-    <ImageView
-        android:id="@+id/imageView76"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toEndOf="@+id/imageView52"
-        app:layout_constraintTop_toBottomOf="@+id/textView40"
-        app:srcCompat="@drawable/icon_circle" />
-
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:text="Select Color"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvStock" />
-
-    <TextView
-        android:id="@+id/textView40"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        android:text="Quantity"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgColor" />
-
-    <TextView
-        android:id="@+id/tvStock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="In Stock (15)"
-        android:textColor="#118769"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
-
-    <TextView
-        android:id="@+id/tvPrice2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="$24.69"
-        android:textColor="#69707E"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
-        app:layout_constraintStart_toEndOf="@+id/tvPrice"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameProduct" />
-
-    <TextView
-        android:id="@+id/tvPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="$14.69"
-        android:textColor="#00BCD4"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameProduct" />
-
-    <TextView
-        android:id="@+id/tvNameProduct"
-        android:layout_width="345dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="Logitech G Pro X 60 Lightspeed  Wireless Gaming"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView72" />
-
-    <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -199,88 +70,33 @@
         android:id="@+id/imgProduct"
         android:layout_width="299dp"
         android:layout_height="186dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView72"
         app:srcCompat="@drawable/icon_error" />
 
-    <TextView
-        android:id="@+id/tvDiscount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|start"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/bg_discount_tag"
-        android:padding="4dp"
-        android:text="15% OFF"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toEndOf="@+id/tvPrice2"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameProduct" />
-
-    <ImageView
-        android:id="@+id/imgColor"
-        android:layout_width="49dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView35"
-        app:srcCompat="@drawable/icon_circle" />
-
-    <ImageView
-        android:id="@+id/imageView52"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40"
-        app:srcCompat="@drawable/icon_circle" />
-
-    <ImageView
-        android:id="@+id/btnMinus"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView52"
-        app:layout_constraintEnd_toEndOf="@+id/imageView52"
-        app:layout_constraintStart_toStartOf="@+id/imageView52"
-        app:layout_constraintTop_toTopOf="@+id/imageView52"
-        app:srcCompat="@drawable/icon_minus" />
-
-    <ImageView
-        android:id="@+id/btnPlus"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView76"
-        app:layout_constraintEnd_toEndOf="@+id/imageView76"
-        app:layout_constraintStart_toStartOf="@+id/imageView76"
-        app:layout_constraintTop_toTopOf="@+id/imageView76"
-        app:srcCompat="@drawable/icon_plus" />
-
     <ImageView
         android:id="@+id/imageView77"
         android:layout_width="393dp"
         android:layout_height="94dp"
+        android:layout_marginBottom="-10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/khung_product_nav" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btnCart"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
         android:layout_marginStart="20dp"
+        android:background="@drawable/bg_see_cart"
+        android:foreground="@drawable/cyber_ripple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView77"
-        app:srcCompat="@drawable/bg_see_cart" />
+        app:layout_constraintTop_toTopOf="@+id/imageView77" />
 
     <ImageView
         android:id="@+id/imageView79"
@@ -292,23 +108,25 @@
         app:layout_constraintTop_toTopOf="@+id/btnCart"
         app:srcCompat="@drawable/icon_cart" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btnBuyNow"
         android:layout_width="144dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/bg_buynow"
+        android:background="@drawable/bg_buynow"
+        android:foreground="@drawable/cyber_ripple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnCart"
         app:layout_constraintTop_toTopOf="@+id/imageView77"
         app:layout_constraintVertical_bias="0.488" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btnAddToCart"
         android:layout_width="144dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/bg_add_to_cart"
+        android:background="@drawable/bg_add_to_cart"
+        android:foreground="@drawable/cyber_ripple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnBuyNow"
         app:layout_constraintTop_toTopOf="@+id/imageView77" />
@@ -351,4 +169,24 @@
         app:layout_constraintTop_toTopOf="@+id/btnAddToCart"
         app:srcCompat="@drawable/icon_oder2" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="419dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView77"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView72">
+
+        <include
+            android:id="@+id/item_product_detail"
+            layout="@layout/item_product_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/productDetailFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

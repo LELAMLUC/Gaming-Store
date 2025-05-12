@@ -1,6 +1,8 @@
 package com.example.gamingstore.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.gamingstore.R;
+import com.example.gamingstore.activity.ProductDetailActivity;
 import com.example.gamingstore.model.Product;
 
 import java.util.List;
@@ -45,6 +48,14 @@ public class PopularProductAdapter extends RecyclerView.Adapter<PopularProductAd
                 .load(product.getImageUrl())
                 .placeholder(R.drawable.icon_error)
                 .into(holder.imgProduct);
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("productName", product.getName());
+            intent.putExtra("productDescription", product.getDescription());
+            intent.putExtra("productId", product.getId()); // sửa lại key cho đúng
+            context.startActivity(intent);
+            Log.d("ProductAdapter", "Clicked product ID: " + product.getId());
+        });
     }
 
     @Override

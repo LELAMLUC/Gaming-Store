@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity  {
             @Override
             public void onClick(View v) {
                 // Chuyển đến Login
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
