@@ -105,10 +105,6 @@ public class ProductDetailActivity extends AppCompatActivity {
             String selectedColorHex = String.format("#%06X", (0xFFFFFF & colorInt));
 
             // In log để kiểm tra dữ liệu gửi đi
-            Log.d("AddToCart", "Account ID: " + accountId);
-            Log.d("AddToCart", "Product ID: " + productId);
-            Log.d("AddToCart", "Quantity: " + quantity);
-            Log.d("AddToCart", "Color: " + selectedColorHex);
             ApiService apiService = RetrofitClient.getApiService();
             Call<Boolean> call = apiService.addToCart(accountId, productId, quantity, selectedColorHex);
 

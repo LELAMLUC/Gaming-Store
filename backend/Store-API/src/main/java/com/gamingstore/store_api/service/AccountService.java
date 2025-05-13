@@ -97,4 +97,8 @@ public class AccountService {
             return null;
         }
     }
+    public Account getAccountById(Long id) {
+        return accountRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Account not found with id: " + id));
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.gamingstore.api;
 
+import com.example.gamingstore.model.Account;
+import com.example.gamingstore.model.CartItem;
 import com.example.gamingstore.model.Category;
 import com.example.gamingstore.model.Product;
 
@@ -59,4 +61,8 @@ public interface ApiService {
             @Path("quantity") int quantity,
             @Path("color") String color
     );
+    @GET("api/cart/getItemCart/{accountId}")
+    Call<List<CartItem>> getCartItems(@Path("accountId") long accountId);
+    @GET("api/accounts/takeProfile/{id}")
+    Call<Account> getAccountById(@Path("id") Long id);
 }

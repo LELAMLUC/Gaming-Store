@@ -9,33 +9,32 @@
 
 
     <ImageButton
-        android:id="@+id/btnEditAddress6"
+        android:id="@+id/btnLogout"
         android:layout_width="353dp"
         android:layout_height="49dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/cyber_ripple"
         android:contentDescription="@null"
         android:foreground="@drawable/cyber_ripple"
-        android:onClick="btnEditAddress"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEditAddress5"
+        app:layout_constraintTop_toBottomOf="@+id/btnAccountSetting"
         app:srcCompat="@drawable/bg_logout" />
 
     <ImageButton
-        android:id="@+id/btnEditAddress5"
+        android:id="@+id/btnAccountSetting"
         android:layout_width="344dp"
         android:layout_height="67dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/cyber_ripple"
         android:contentDescription="@null"
         android:foreground="@drawable/cyber_ripple"
-        android:onClick="btnEditAddress"
+
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEditAddress4"
+        app:layout_constraintTop_toBottomOf="@+id/btnPayment"
         app:srcCompat="@drawable/bg_account" />
 
     <TextView
@@ -46,25 +45,25 @@
         android:textColor="#cccccc"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress5"
-        app:layout_constraintEnd_toEndOf="@+id/btnEditAddress5"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAccountSetting"
+        app:layout_constraintEnd_toEndOf="@+id/btnAccountSetting"
         app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toEndOf="@+id/imageView67"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress5" />
+        app:layout_constraintTop_toTopOf="@+id/btnAccountSetting" />
 
     <ImageButton
-        android:id="@+id/btnEditAddress4"
+        android:id="@+id/btnPayment"
         android:layout_width="344dp"
         android:layout_height="67dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/cyber_ripple"
         android:contentDescription="@null"
         android:foreground="@drawable/cyber_ripple"
-        android:onClick="btnEditAddress"
+
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEditAddress3"
+        app:layout_constraintTop_toBottomOf="@+id/btnOrders"
         app:srcCompat="@drawable/bg_account" />
 
     <ImageView
@@ -72,9 +71,9 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress4"
-        app:layout_constraintStart_toStartOf="@+id/btnEditAddress4"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress4"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPayment"
+        app:layout_constraintStart_toStartOf="@+id/btnPayment"
+        app:layout_constraintTop_toTopOf="@+id/btnPayment"
         app:srcCompat="@drawable/icon_payment" />
 
     <ImageView
@@ -82,9 +81,9 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress5"
-        app:layout_constraintStart_toStartOf="@+id/btnEditAddress5"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress5"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAccountSetting"
+        app:layout_constraintStart_toStartOf="@+id/btnAccountSetting"
+        app:layout_constraintTop_toTopOf="@+id/btnAccountSetting"
         app:layout_constraintVertical_bias="0.56"
         app:srcCompat="@drawable/icon_account" />
 
@@ -105,14 +104,14 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <ImageButton
-        android:id="@+id/btnEditAddress3"
+        android:id="@+id/btnOrders"
         android:layout_width="344dp"
         android:layout_height="67dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/cyber_ripple"
         android:contentDescription="@null"
         android:foreground="@drawable/cyber_ripple"
-        android:onClick="btnEditAddress"
+
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
@@ -128,11 +127,11 @@
         android:textColor="#cccccc"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress3"
-        app:layout_constraintEnd_toEndOf="@+id/btnEditAddress3"
+        app:layout_constraintBottom_toBottomOf="@+id/btnOrders"
+        app:layout_constraintEnd_toEndOf="@+id/btnOrders"
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toEndOf="@+id/imageView65"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress3"
+        app:layout_constraintTop_toTopOf="@+id/btnOrders"
         app:layout_constraintVertical_bias="0.521" />
 
     <TextView
@@ -143,25 +142,26 @@
         android:textColor="#cccccc"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress4"
-        app:layout_constraintEnd_toEndOf="@+id/btnEditAddress4"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPayment"
+        app:layout_constraintEnd_toEndOf="@+id/btnPayment"
         app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toEndOf="@+id/imageView66"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress4" />
+        app:layout_constraintTop_toTopOf="@+id/btnPayment" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tvLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
-        android:text="Hồ Chí Minh, Việt Nam"
+        android:text="Thủ Đức, Hồ Chí Minh"
         android:textColor="#CCCCCC"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView62"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
 
     <ImageView
         android:id="@+id/imageView62"
@@ -171,23 +171,24 @@
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView55"
+        app:layout_constraintStart_toEndOf="@+id/imgAccount"
         app:layout_constraintTop_toBottomOf="@+id/imageView61"
         app:srcCompat="@drawable/icon_location" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:text="0971035351"
         android:textColor="#CCCCCC"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView61"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
     <ImageView
         android:id="@+id/imageView61"
@@ -197,23 +198,24 @@
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView55"
+        app:layout_constraintStart_toEndOf="@+id/imgAccount"
         app:layout_constraintTop_toBottomOf="@+id/imageView60"
         app:srcCompat="@drawable/icon_phone" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="12dp"
         android:text="lelamluc1234@gmail.com"
         android:textColor="#CCCCCC"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView60"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
 
     <ImageView
         android:id="@+id/imageView54"
@@ -263,7 +265,7 @@
         app:srcCompat="@drawable/icon_edit" />
 
     <ImageView
-        android:id="@+id/imageView55"
+        android:id="@+id/imgAccount"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginTop="28dp"
@@ -274,14 +276,14 @@
         app:srcCompat="@drawable/icon_circle_account" />
 
     <ImageView
-        android:id="@+id/imageView59"
+        android:id="@+id/btnChangeImage"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView55"
-        app:layout_constraintEnd_toEndOf="@+id/imageView55"
+        app:layout_constraintBottom_toBottomOf="@+id/imgAccount"
+        app:layout_constraintEnd_toEndOf="@+id/imgAccount"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView55"
-        app:layout_constraintTop_toTopOf="@+id/imageView55"
+        app:layout_constraintStart_toStartOf="@+id/imgAccount"
+        app:layout_constraintTop_toTopOf="@+id/imgAccount"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/icon_image" />
 
@@ -293,23 +295,24 @@
         android:textColor="#0ABDE3"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView55"
-        app:layout_constraintEnd_toEndOf="@+id/imageView55"
-        app:layout_constraintStart_toStartOf="@+id/imageView55"
-        app:layout_constraintTop_toTopOf="@+id/imageView55" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgAccount"
+        app:layout_constraintEnd_toEndOf="@+id/imgAccount"
+        app:layout_constraintStart_toStartOf="@+id/imgAccount"
+        app:layout_constraintTop_toTopOf="@+id/imgAccount" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/tvFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="Lê Lâm Lực"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toEndOf="@+id/imageView55"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgAccount"
         app:layout_constraintTop_toBottomOf="@+id/imageView54" />
 
     <ImageView
@@ -320,8 +323,8 @@
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView55"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
+        app:layout_constraintStart_toEndOf="@+id/imgAccount"
+        app:layout_constraintTop_toBottomOf="@+id/tvFullName"
         app:srcCompat="@drawable/icon_email" />
 
     <ImageView
@@ -331,7 +334,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView55"
+        app:layout_constraintTop_toBottomOf="@+id/imgAccount"
         app:srcCompat="@drawable/khung_account" />
 
     <ImageButton
@@ -342,25 +345,25 @@
         android:background="@drawable/cyber_ripple"
         android:contentDescription="@null"
         android:foreground="@drawable/cyber_ripple"
-        android:onClick="btnChangePayment"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="@+id/imageView63"
         app:layout_constraintStart_toEndOf="@+id/btnEditAddress"
-        app:layout_constraintTop_toBottomOf="@+id/imageView64"
+        app:layout_constraintTop_toBottomOf="@+id/imgPayment"
         app:srcCompat="@drawable/bg_edit_account" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/tvMoMoPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="4dp"
         android:text="**** *** 351"
         android:textColor="#CCCCCC"
         android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView63"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toEndOf="@+id/imageView64"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgPayment"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <TextView
@@ -375,20 +378,20 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView63"
         app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="@+id/imageView63"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFullAddress" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/tvFullAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="2dp"
         android:text="C23/1F1 Tăng Nhơn Phú B, Thủ Đức, Hồ Chí Minh."
         android:textColor="#FFFFFF"
         android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView63"
-        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView63"
         app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
@@ -428,16 +431,15 @@
         android:background="@drawable/cyber_ripple"
         android:contentDescription="@null"
         android:foreground="@drawable/cyber_ripple"
-        android:onClick="btnEditAddress"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="@+id/imageView63"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="@+id/imageView63"
-        app:layout_constraintTop_toBottomOf="@+id/imageView64"
+        app:layout_constraintTop_toBottomOf="@+id/imgPayment"
         app:srcCompat="@drawable/bg_edit_account" />
 
     <ImageView
-        android:id="@+id/imageView64"
+        android:id="@+id/imgPayment"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="2dp"
@@ -476,9 +478,9 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress3"
-        app:layout_constraintStart_toStartOf="@+id/btnEditAddress3"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress3"
+        app:layout_constraintBottom_toBottomOf="@+id/btnOrders"
+        app:layout_constraintStart_toStartOf="@+id/btnOrders"
+        app:layout_constraintTop_toTopOf="@+id/btnOrders"
         app:layout_constraintVertical_bias="0.52"
         app:srcCompat="@drawable/icon_order" />
 
@@ -487,9 +489,9 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="140dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress6"
-        app:layout_constraintStart_toStartOf="@+id/btnEditAddress6"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress6"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLogout"
+        app:layout_constraintStart_toStartOf="@+id/btnLogout"
+        app:layout_constraintTop_toTopOf="@+id/btnLogout"
         app:srcCompat="@drawable/icon_logout" />
 
     <TextView
@@ -499,9 +501,9 @@
         android:text="Logout"
         android:textColor="#EF4444"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditAddress6"
-        app:layout_constraintEnd_toEndOf="@+id/btnEditAddress6"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLogout"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogout"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toEndOf="@+id/imageView68"
-        app:layout_constraintTop_toTopOf="@+id/btnEditAddress6" />
+        app:layout_constraintTop_toTopOf="@+id/btnLogout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

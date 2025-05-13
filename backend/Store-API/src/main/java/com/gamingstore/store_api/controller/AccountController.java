@@ -1,8 +1,12 @@
 package com.gamingstore.store_api.controller;
 
+import com.gamingstore.store_api.entity.Account;
 import com.gamingstore.store_api.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/accounts")
@@ -35,5 +39,10 @@ public class AccountController {
     @PostMapping("/changePassword/{email}/{pass}")
     public boolean changePassword(@PathVariable String email, @PathVariable String pass) {
         return accountService.changePassword(email, pass);
+    }
+    @GetMapping("/takeProfile/{id}")
+    public ResponseEntity<Account> getAccountById(@PathVariable Long id) {
+        Account account = accountService.getAccountById(id);
+        return ResponseEntity.ok(account);
     }
 }

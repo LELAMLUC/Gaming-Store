@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CartRepository extends JpaRepository<Cart, Long> {
-    // Sửa lại phương thức này
-    List<Cart> findByAccount(Account account);
-
+    List<Cart> findByAccountId(Long accountId);
     // Phương thức này để tìm cart theo account, product và color
     Optional<Cart> findByAccountAndProductAndColor(Account account, Product product, String color);
 }
