@@ -2,11 +2,14 @@ package com.example.gamingstore.fragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,9 +18,11 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.gamingstore.R;
+import com.example.gamingstore.activity.AddressActivity;
 import com.example.gamingstore.api.RetrofitClient;
 import com.example.gamingstore.model.Account;
 import com.example.gamingstore.api.ApiService;
+import com.example.gamingstore.model.Address;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,8 +30,8 @@ import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView tvFullName, tvEmail, tvPhone, tvFullAddress, tvLocation;
-    private ImageView imgAccount;
+    private TextView tvFullName, tvEmail, tvPhone, tvFullAddress, tvLocation, tvInfoPayment;
+    private ImageView imgAccount, imgPayment;
 
     public ProfileFragment() {}
 
@@ -42,7 +47,8 @@ public class ProfileFragment extends Fragment {
         tvFullAddress = view.findViewById(R.id.tvFullAddress);
         imgAccount = view.findViewById(R.id.imgAccount);
         tvLocation = view.findViewById(R.id.tvLocation);
-
+        imgPayment = view.findViewById(R.id.imgPayment);
+        tvInfoPayment = view.findViewById(R.id.tvInfoPayment);
         // Lấy ID người dùng từ SharedPreferences
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", MODE_PRIVATE);
         long accountId = sharedPreferences.getLong("accountId", -1);  // Nếu không tìm thấy, trả về -1
@@ -50,10 +56,19 @@ public class ProfileFragment extends Fragment {
         if (accountId != -1) {
             // Gọi API và cập nhật dữ liệu
             fetchUserProfile(accountId);
+            fetchAddressProfile(accountId);
         } else {
             Toast.makeText(getContext(), "Không tìm thấy thông tin người dùng", Toast.LENGTH_SHORT).show();
         }
+        ImageButton btnEditAddress = view.findViewById(R.id.btnEditAddress);
 
+        btnEditAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddressActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -73,13 +88,10 @@ public class ProfileFragment extends Fragment {
                     tvFullName.setText(account.getFullName());
                     tvEmail.setText(account.getEmail());
                     tvPhone.setText(account.getPhone());
-                    tvFullAddress.setText(account.getAddress());
-
-                    // Lấy địa chỉ và chỉ hiển thị quận và thành phố
-                    String fullAddress = account.getAddress();
-                    String location = getLocationFromAddress(fullAddress);
-                    tvLocation.setText(location);
-
+                    if(account.getPaymentMethod()!=0){
+                        imgPayment.setBackgroundResource(R.drawable.momo);
+                        tvInfoPayment.setText(account.getPhone());
+                    }
                     // Đặt ảnh người dùng nếu có URL
                     if (account.getAvatarUrl() != null) {
                         Glide.with(ProfileFragment.this)
@@ -98,16 +110,51 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+    private void fetchAddressProfile(long accountId) {
+        ApiService apiService = RetrofitClient.getApiService();
 
+        // Gọi API
+        Call<Address> call = apiService.getAddressesByAccountId(accountId);
+
+        // Gửi yêu cầu API và xử lý kết quả
+        call.enqueue(new Callback<Address>() {
+            @Override
+            public void onResponse(Call<Address> call, Response<Address> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Address address = response.body();
+
+
+                    String fullAddress = address.getAddress();
+                    String safeAddress = fullAddress.replace("_", "/");
+                    tvFullAddress.setText(safeAddress);
+                    String location = getLocationFromAddress(safeAddress);
+                    tvLocation.setText(location);
+
+                } else {
+                    Toast.makeText(getContext(), "Không thể lấy thông tin", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Address> call, Throwable t) {
+                // Xử lý khi gọi API thất bại
+                Toast.makeText(getContext(), "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("ProfileFragment", "Lỗi kết nối: " + t.getMessage(), t);
+            }
+        });
+    }
     // Hàm xử lý lấy quận và thành phố từ địa chỉ đầy đủ
     private String getLocationFromAddress(String fullAddress) {
-        String[] parts = fullAddress.split(", ");
-        if (parts.length > 1) {
-            String district = parts[parts.length - 2]; // Quận
-            String city = parts[parts.length - 1]; // Thành phố
+        String[] parts = fullAddress.split(",");
+        if (parts.length == 4) {
+            String district = parts[2].trim(); // quận/huyện
+            String city = parts[3].trim();     // tỉnh/thành phố
             return district + ", " + city;
         } else {
-            return fullAddress; // Trường hợp không có quận và thành phố
+            return "Địa chỉ không hợp lệ";
         }
     }
+
 }
+
+

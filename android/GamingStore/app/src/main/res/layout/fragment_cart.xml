@@ -200,7 +200,6 @@
         android:background="@drawable/cyber_ripple"
         android:contentDescription="@null"
         android:foreground="@drawable/cyber_ripple"
-        android:onClick="btnCheckout"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"

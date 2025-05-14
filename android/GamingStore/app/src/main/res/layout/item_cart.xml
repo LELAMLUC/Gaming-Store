@@ -31,7 +31,7 @@
         android:layout_width="54dp"
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
-        android:background="@drawable/decor2"
+        android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toTopOf="@id/imgProduct" />
 
     <TextView
-        android:id="@+id/tvPrice"
+        android:id="@+id/tvQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -90,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toEndOf="@+id/imgProduct"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuantity"
         app:srcCompat="@drawable/icon_circle" />
 
     <ImageView
@@ -113,7 +113,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnMinus"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuantity"
         app:srcCompat="@drawable/icon_circle" />
 
     <ImageView
@@ -137,7 +137,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/btnPlus"
         app:layout_constraintStart_toEndOf="@+id/btnMinus"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/tvQuantity" />
 
     <LinearLayout
         android:id="@+id/imgColor"
@@ -147,6 +147,6 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgProduct"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuantity"
         app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

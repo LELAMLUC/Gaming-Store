@@ -2,12 +2,14 @@ package com.example.gamingstore.fragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gamingstore.R;
+import com.example.gamingstore.activity.CheckoutActivity;
 import com.example.gamingstore.adapter.CartAdapter;
 import com.example.gamingstore.api.ApiService;
 import com.example.gamingstore.api.RetrofitClient;
@@ -34,7 +37,7 @@ public class CartFragment extends Fragment {
     private CartAdapter cartAdapter;
     private List<CartItem> cartItems = new ArrayList<>();
     private ApiService apiService;
-
+    private ImageButton btnCheckout;
     private TextView tvSubTotal, tvShipping, tvTotal;
 
     public CartFragment() {}
@@ -54,7 +57,7 @@ public class CartFragment extends Fragment {
         tvSubTotal = view.findViewById(R.id.tvSubTotal);
         tvShipping = view.findViewById(R.id.tvShipping);
         tvTotal = view.findViewById(R.id.tvTotal);
-
+        btnCheckout = view.findViewById(R.id.btnCheckout);
         // Gán callback cập nhật tổng
         cartAdapter.setOnCartChangeListener(() -> updateCartSummary());
 
@@ -68,7 +71,11 @@ public class CartFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Bạn chưa đăng nhập!", Toast.LENGTH_SHORT).show();
         }
-
+        btnCheckout.setOnClickListener(v -> {
+            // Chuyển qua Activity Checkout
+            Intent intent = new Intent(getActivity(), CheckoutActivity.class);
+            startActivity(intent);
+        });
         return view;
     }
 

@@ -41,7 +41,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         // Initialize views
         tvNameProduct = findViewById(R.id.tvNameProduct);
-        tvPrice = findViewById(R.id.tvPrice);
+        tvPrice = findViewById(R.id.tvQuantity);
         tvPrice2 = findViewById(R.id.tvPrice2);
         tvStock = findViewById(R.id.tvStock);
         tvDiscount = findViewById(R.id.tvDiscount);

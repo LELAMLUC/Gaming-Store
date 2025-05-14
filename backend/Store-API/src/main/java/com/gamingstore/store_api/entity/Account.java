@@ -13,31 +13,35 @@ public class Account {
     private String email;
     private String password;
     private String phone;
-    private String address;
     private String avatarUrl;
     private String role = "user";
 
+    private int paymentMethod = 0; // 0: COD, 1: Momo, có thể mở rộng sau này
+
     public Account() {}
+
     public Account(String fullName, String email, String password) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.role = "user"; // mặc định là user
+        this.role = "user";
     }
+
     public Account(String email, String password) {
         this.email = email;
         this.password = password;
     }
-    public Account(String fullName, String email, String password, String phone, String address, String avatarUrl, String role) {
+
+    public Account(String fullName, String email, String password, String phone, String avatarUrl, String role) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.phone = phone;
-        this.address = address;
         this.avatarUrl = avatarUrl;
         this.role = role;
     }
 
+    // Getters và Setters
     public Long getId() {
         return id;
     }
@@ -58,16 +62,16 @@ public class Account {
         return phone;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
     public String getAvatarUrl() {
         return avatarUrl;
     }
 
     public String getRole() {
         return role;
+    }
+
+    public int getPaymentMethod() {
+        return paymentMethod;
     }
 
     public void setId(Long id) {
@@ -90,15 +94,15 @@ public class Account {
         this.phone = phone;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public void setPaymentMethod(int paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }

@@ -1,12 +1,14 @@
 package com.example.gamingstore.api;
 
 import com.example.gamingstore.model.Account;
+import com.example.gamingstore.model.Address;
 import com.example.gamingstore.model.CartItem;
 import com.example.gamingstore.model.Category;
 import com.example.gamingstore.model.Product;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -65,4 +67,13 @@ public interface ApiService {
     Call<List<CartItem>> getCartItems(@Path("accountId") long accountId);
     @GET("api/accounts/takeProfile/{id}")
     Call<Account> getAccountById(@Path("id") Long id);
+    @GET("api/addresses/{accountId}")
+    Call<Address> getAddressesByAccountId(@Path("accountId") Long accountId);
+    @POST("api/addresses/create-and-get/{accountId}/{name}/{phone}/{address}")
+    Call<ResponseBody> createOrUpdateAddress(
+            @Path("accountId") long accountId,
+            @Path("name") String name,
+            @Path("phone") String phone,
+            @Path("address") String address
+    );
 }

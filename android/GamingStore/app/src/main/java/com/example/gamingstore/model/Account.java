@@ -6,23 +6,25 @@ public class Account {
     private String email;
     private String password;
     private String phone;
-    private String address;
     private String avatarUrl;
     private String role;
+    private int paymentMethod;
 
     public Account() {}
 
-    public Account(Long id, String fullName, String email, String password, String phone, String address, String avatarUrl, String role) {
+    public Account(Long id, String fullName, String email, String password, String phone,
+                   String avatarUrl, String role, int paymentMethod) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.phone = phone;
-        this.address = address;
         this.avatarUrl = avatarUrl;
         this.role = role;
+        this.paymentMethod = paymentMethod;
     }
 
+    // Getters
     public Long getId() {
         return id;
     }
@@ -43,10 +45,6 @@ public class Account {
         return phone;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
     public String getAvatarUrl() {
         return avatarUrl;
     }
@@ -55,6 +53,11 @@ public class Account {
         return role;
     }
 
+    public int getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    // Setters
     public void setId(Long id) {
         this.id = id;
     }
@@ -75,15 +78,15 @@ public class Account {
         this.phone = phone;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public void setPaymentMethod(int paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }

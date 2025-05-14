@@ -41,13 +41,13 @@
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account Settings"
+        android:text="Settings"
         android:textColor="#cccccc"
         android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/btnAccountSetting"
         app:layout_constraintEnd_toEndOf="@+id/btnAccountSetting"
-        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toEndOf="@+id/imageView67"
         app:layout_constraintTop_toTopOf="@+id/btnAccountSetting" />
 
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/btnPayment"
         app:layout_constraintStart_toStartOf="@+id/btnPayment"
         app:layout_constraintTop_toTopOf="@+id/btnPayment"
-        app:srcCompat="@drawable/icon_payment" />
+        app:srcCompat="@drawable/icon_heart3" />
 
     <ImageView
         android:id="@+id/imageView67"
@@ -85,7 +85,7 @@
         app:layout_constraintStart_toStartOf="@+id/btnAccountSetting"
         app:layout_constraintTop_toTopOf="@+id/btnAccountSetting"
         app:layout_constraintVertical_bias="0.56"
-        app:srcCompat="@drawable/icon_account" />
+        app:srcCompat="@drawable/icon_setting" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -138,13 +138,13 @@
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Payment Methods"
+        android:text="My Wislist"
         android:textColor="#cccccc"
         android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/btnPayment"
         app:layout_constraintEnd_toEndOf="@+id/btnPayment"
-        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toEndOf="@+id/imageView66"
         app:layout_constraintTop_toTopOf="@+id/btnPayment" />
 
@@ -337,27 +337,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imgAccount"
         app:srcCompat="@drawable/khung_account" />
 
-    <ImageButton
-        android:id="@+id/btnChangePayment"
-        android:layout_width="151dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/cyber_ripple"
-        android:contentDescription="@null"
-        android:foreground="@drawable/cyber_ripple"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="@+id/imageView63"
-        app:layout_constraintStart_toEndOf="@+id/btnEditAddress"
-        app:layout_constraintTop_toBottomOf="@+id/imgPayment"
-        app:srcCompat="@drawable/bg_edit_account" />
-
     <TextView
-        android:id="@+id/tvMoMoPay"
+        android:id="@+id/tvInfoPayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginTop="4dp"
-        android:text="**** *** 351"
+        android:text="Cash on Delivery (COD)"
         android:textColor="#CCCCCC"
         android:textSize="13sp"
         android:textStyle="bold"
@@ -433,7 +419,7 @@
         android:foreground="@drawable/cyber_ripple"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="@+id/imageView63"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/imageView63"
         app:layout_constraintTop_toBottomOf="@+id/imgPayment"
         app:srcCompat="@drawable/bg_edit_account" />
@@ -443,11 +429,11 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="2dp"
+        android:background="@drawable/icon_cod"
         app:layout_constraintEnd_toEndOf="@+id/imageView63"
         app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="@+id/imageView63"
-        app:layout_constraintTop_toBottomOf="@+id/textView30"
-        app:srcCompat="@drawable/momo" />
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <TextView
         android:id="@+id/textView33"
@@ -460,18 +446,6 @@
         app:layout_constraintEnd_toEndOf="@+id/btnEditAddress"
         app:layout_constraintStart_toStartOf="@+id/btnEditAddress"
         app:layout_constraintTop_toTopOf="@+id/btnEditAddress" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Payment"
-        android:textColor="#0ABDE3"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnChangePayment"
-        app:layout_constraintEnd_toEndOf="@+id/btnChangePayment"
-        app:layout_constraintStart_toStartOf="@+id/btnChangePayment"
-        app:layout_constraintTop_toTopOf="@+id/btnChangePayment" />
 
     <ImageView
         android:id="@+id/imageView65"

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_all"
+    tools:context=".activity.CheckoutActivity">
+
+
+    <ImageButton
+        android:id="@+id/btnCheckout3"
+        android:layout_width="111dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/cyber_ripple"
+        android:contentDescription="@null"
+        android:foreground="@drawable/cyber_ripple"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toEndOf="@+id/imageView91"
+        app:layout_constraintTop_toBottomOf="@+id/textView48"
+        app:srcCompat="@drawable/bg_addcode" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Add Voucher"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+    <ImageView
+        android:id="@+id/btnStandard"
+        android:layout_width="168dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView52"/>
+
+    <ImageView
+        android:id="@+id/btnExpress"
+        android:layout_width="168dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_normal"
+        app:layout_constraintHorizontal_bias="0.323"
+        app:layout_constraintStart_toEndOf="@+id/btnStandard"
+        app:layout_constraintTop_toBottomOf="@+id/textView52"/>
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$9.99"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnStandard"
+        app:layout_constraintEnd_toEndOf="@+id/btnStandard"
+        app:layout_constraintStart_toStartOf="@+id/btnStandard"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimeToGo" />
+
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$19.99"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnExpress"
+        app:layout_constraintEnd_toEndOf="@+id/btnExpress"
+        app:layout_constraintStart_toStartOf="@+id/btnExpress"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimeToGo2" />
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Standard"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnStandard"
+        app:layout_constraintStart_toStartOf="@+id/btnStandard"
+        app:layout_constraintTop_toBottomOf="@+id/imgTruck1" />
+
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Express"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnExpress"
+        app:layout_constraintStart_toStartOf="@+id/btnExpress"
+        app:layout_constraintTop_toBottomOf="@+id/imgTruck2" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Delivery Method"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView86" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Change"
+        android:textColor="#0ABDE3"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toEndOf="@+id/textView52"
+        app:layout_constraintTop_toBottomOf="@+id/imageView86" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Delivery Address"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCODPayment" />
+
+    <ImageView
+        android:id="@+id/btnCODPayment"
+        android:layout_width="348dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMoMoPayment"
+/>
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Cash on Delivery (COD)"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/btnMoMoPayment"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView82"
+        app:layout_constraintTop_toTopOf="@+id/btnCODPayment" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Payment Method"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnMoMoPayment"
+        android:layout_width="348dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <ImageView
+        android:id="@+id/imageView81"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMoMoPayment"
+        app:layout_constraintStart_toStartOf="@+id/btnMoMoPayment"
+        app:layout_constraintTop_toTopOf="@+id/btnMoMoPayment"
+        app:srcCompat="@drawable/momo" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="MoMo Wallet Not Linked"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/btnMoMoPayment"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView81"
+        app:layout_constraintTop_toTopOf="@+id/btnMoMoPayment" />
+
+    <ImageView
+        android:id="@+id/imageView82"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCODPayment"
+        app:layout_constraintStart_toStartOf="@+id/btnCODPayment"
+        app:layout_constraintTop_toTopOf="@+id/btnCODPayment"
+        app:srcCompat="@drawable/icon_cod" />
+
+    <ImageView
+        android:id="@+id/imgRadio1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/icon_button_radio"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMoMoPayment"
+        app:layout_constraintEnd_toEndOf="@+id/btnMoMoPayment"
+        app:layout_constraintTop_toTopOf="@+id/btnMoMoPayment" />
+
+    <ImageView
+        android:id="@+id/imgRadio2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/icon_button_radio"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCODPayment"
+        app:layout_constraintEnd_toEndOf="@+id/btnCODPayment"
+        app:layout_constraintTop_toTopOf="@+id/btnCODPayment" />
+
+    <ImageView
+        android:id="@+id/imageView86"
+        android:layout_width="348dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView45"
+        app:srcCompat="@drawable/khung_delivery_address" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="C23/1F1 Tăng Nhơn Phú A Thủ Đức, Hồ Chí Minh"
+        android:textColor="#CCCCCC"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView86"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView87"
+        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="0971035351"
+        android:textColor="#CCCCCC"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView86"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView87"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="Lê Lâm Lực"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView86"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView87"
+        app:layout_constraintTop_toTopOf="@+id/imageView86" />
+
+    <ImageView
+        android:id="@+id/imageView87"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView86"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="@+id/imageView86"
+        app:layout_constraintTop_toTopOf="@+id/imageView86"
+        app:srcCompat="@drawable/icon_location" />
+
+    <ImageView
+        android:id="@+id/imgTruck1"
+        android:layout_width="28dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/icon_deli2"
+        app:layout_constraintEnd_toEndOf="@+id/btnStandard"
+        app:layout_constraintStart_toStartOf="@+id/btnStandard"
+        app:layout_constraintTop_toTopOf="@+id/btnStandard" />
+
+    <ImageView
+        android:id="@+id/imgTruck2"
+        android:layout_width="28dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/icon_deli2"
+        app:layout_constraintEnd_toEndOf="@+id/btnExpress"
+        app:layout_constraintStart_toStartOf="@+id/btnExpress"
+        app:layout_constraintTop_toTopOf="@+id/btnExpress" />
+
+    <TextView
+        android:id="@+id/tvTimeToGo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="2-4 days"
+        android:textColor="#ffffff"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnStandard"
+        app:layout_constraintStart_toStartOf="@+id/btnStandard"
+        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+    <TextView
+        android:id="@+id/tvTimeToGo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="1-2 days"
+        android:textColor="#ffffff"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnExpress"
+        app:layout_constraintStart_toStartOf="@+id/btnExpress"
+        app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+    <ImageView
+        android:id="@+id/imageView91"
+        android:layout_width="233dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView48"
+        app:srcCompat="@drawable/khung_voucher" />
+
+    <EditText
+        android:id="@+id/edtEmail4"
+        android:layout_width="210dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:hint="Enter voucher code"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#69707E"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView91"
+        app:layout_constraintEnd_toEndOf="@+id/imageView91"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="@+id/imageView91"
+        app:layout_constraintTop_toTopOf="@+id/imageView91" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply Code"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCheckout3"
+        app:layout_constraintEnd_toEndOf="@+id/btnCheckout3"
+        app:layout_constraintStart_toStartOf="@+id/btnCheckout3"
+        app:layout_constraintTop_toTopOf="@+id/btnCheckout3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
