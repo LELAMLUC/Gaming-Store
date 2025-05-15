@@ -21,16 +21,19 @@ import com.example.gamingstore.api.ApiService;
 import com.example.gamingstore.fragment.CartFragment;
 import com.example.gamingstore.model.Product;
 import com.example.gamingstore.api.RetrofitClient;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductDetailActivity extends AppCompatActivity {
+public class ProductDetailActivity extends BaseActivity {
 
     private TextView tvNameProduct, tvPrice, tvPrice2, tvStock, tvDiscount, tvDescription,tvQuantity;
-    private ImageView imgProduct, imageView52, imageView76, btnMinus, btnPlus, btnCart, btnBuyNow, btnAddToCart;
+    private ImageView imgProduct, imageView52, imageView76, btnMinus, btnPlus, btnCart, btnBuyNow, btnAddToCart,btnHeart;
     private LinearLayout imgColor;
-
+    private boolean isWishlisted = false; // trạng thái thích hay chưa
     private long productId;
     private View selectedColorView = null;  // Để lưu trữ màu đã chọn
 
@@ -81,12 +84,14 @@ public class ProductDetailActivity extends AppCompatActivity {
                     .addToBackStack(null)
                     .commit();
         });
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        long accountId = sharedPreferences.getLong("accountId", -1);  // Nếu không tìm thấy, trả về -1
+        if (accountId != -1) {
+            checkWishlistStatus(accountId, productId);
+        }
 
         btnAddToCart.setOnClickListener(v -> {
             // Lấy accountId từ SharedPreferences
-            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-            long accountId = sharedPreferences.getLong("accountId", -1);  // Nếu không tìm thấy, trả về -1
-
             if (accountId == -1) {
                 // Nếu không tìm thấy accountId (chưa đăng nhập), có thể hiển thị thông báo hoặc yêu cầu đăng nhập
                 Toast.makeText(ProductDetailActivity.this, "Vui lòng đăng nhập để tiếp tục", Toast.LENGTH_SHORT).show();
@@ -124,6 +129,31 @@ public class ProductDetailActivity extends AppCompatActivity {
                     Toast.makeText(ProductDetailActivity.this, "Lỗi kết nối tới server", Toast.LENGTH_SHORT).show();
                 }
             });
+        });
+        btnHeart = findViewById(R.id.btnHeart);
+
+// Giả sử bạn có thể lấy trạng thái wishlist ban đầu từ API hoặc intent
+// Nếu chưa có, mặc định là chưa thích:
+        updateHeartIcon();
+
+        btnHeart.setOnClickListener(v -> {
+            isWishlisted = !isWishlisted;
+            updateHeartIcon();
+
+            // Lấy accountId từ SharedPreferences
+            if (accountId == -1) {
+                Toast.makeText(ProductDetailActivity.this, "Vui lòng đăng nhập để tiếp tục", Toast.LENGTH_SHORT).show();
+                // Quay về trạng thái ban đầu
+                isWishlisted = !isWishlisted;
+                updateHeartIcon();
+                return;
+            }
+
+            if (isWishlisted) {
+                addToWishlist(accountId, productId);
+            } else {
+                removeFromWishlist(accountId, productId);
+            }
         });
     }
 
@@ -214,4 +244,80 @@ public class ProductDetailActivity extends AppCompatActivity {
         // Lưu lại màu đã chọn
         selectedColorView = colorView;
     }
+    private void updateHeartIcon() {
+        if (isWishlisted) {
+            btnHeart.setBackgroundResource(R.drawable.icon_heart2);
+        } else {
+            btnHeart.setBackgroundResource(R.drawable.icon_heart1);
+        }
+    }
+    private void addToWishlist(long accountId, long productId) {
+        ApiService apiService = RetrofitClient.getApiService();
+        Call<Void> call = apiService.addWishlist(accountId, productId);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()) {
+                    Toast.makeText(ProductDetailActivity.this, "Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ProductDetailActivity.this, "Thêm yêu thích thất bại", Toast.LENGTH_SHORT).show();
+                    // Rollback trạng thái
+                    isWishlisted = false;
+                    updateHeartIcon();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(ProductDetailActivity.this, "Lỗi kết nối server", Toast.LENGTH_SHORT).show();
+                isWishlisted = false;
+                updateHeartIcon();
+            }
+        });
+    }
+
+    private void removeFromWishlist(long accountId, long productId) {
+        ApiService apiService = RetrofitClient.getApiService();
+        Call<Void> call = apiService.removeWishlist(accountId, productId);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()) {
+                    Toast.makeText(ProductDetailActivity.this, "Đã bỏ yêu thích", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ProductDetailActivity.this, "Bỏ yêu thích thất bại", Toast.LENGTH_SHORT).show();
+                    // Rollback trạng thái
+                    isWishlisted = true;
+                    updateHeartIcon();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(ProductDetailActivity.this, "Lỗi kết nối server", Toast.LENGTH_SHORT).show();
+                isWishlisted = true;
+                updateHeartIcon();
+            }
+        });
+    }
+    private void checkWishlistStatus(long accountId, long productId) {
+        ApiService apiService = RetrofitClient.getApiService();
+        Call<Boolean> call = apiService.isWishlisted(accountId, productId);
+
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                if (response.isSuccessful() && Boolean.TRUE.equals(response.body())) {
+                    isWishlisted = true;
+                    updateHeartIcon();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                Log.e("WishlistCheck", "Lỗi kết nối API", t);
+            }
+        });
+    }
+
 }

@@ -1,21 +1,20 @@
 package com.example.gamingstore.activity;
 
-import static android.app.PendingIntent.getActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.fragment.app.Fragment;
 
 import com.example.gamingstore.R;
 import com.example.gamingstore.adapter.CategoryAdapter;
@@ -39,7 +38,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private CategoryAdapter categoryAdapter;
@@ -51,31 +50,16 @@ public class HomeActivity extends AppCompatActivity {
     private ApiService apiService;
     private EditText edtSearch;
 
+    private ImageView btnCart2, btnProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
-        EditText edtSearch = findViewById(R.id.edtEmail2);  // EditText của bạn
-
-        // Thiết lập sự kiện khi người dùng nhấn nút gửi (Enter) trên bàn phím
-        edtSearch.setOnEditorActionListener((v, actionId, event) -> {
-            // Kiểm tra xem nút "gửi" (Enter) đã được nhấn chưa
-            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_SEARCH) {
-                // Lấy từ khóa tìm kiếm từ EditText
-                String searchQuery = edtSearch.getText().toString().trim();
-
-                // Kiểm tra nếu người dùng đã nhập từ khóa
-                if (!searchQuery.isEmpty()) {
-                    Log.d("SearchFragment", "Search query: " + searchQuery);  // Log để kiểm tra từ khóa tìm kiếm
-                    onSearch(searchQuery);
-                }
-                return true; // Đánh dấu rằng sự kiện đã được xử lý
-            }
-            return false;
-        });
-        recyclerPopular = findViewById(R.id.recyclerPopular);
+        edtSearch = findViewById(R.id.edtEmail2);
+        recyclerPopular = findViewById(R.id.rvWishlist);
         recyclerPopular.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -85,6 +69,27 @@ public class HomeActivity extends AppCompatActivity {
         bottomNav = findViewById(R.id.bottom_navigation);
         apiService = RetrofitClient.getApiService();
 
+        btnCart2 = findViewById(R.id.btnCart2);
+        btnProfile = findViewById(R.id.btnProfile);
+
+        // Xử lý khi nhấn nút cart hoặc profile ở đầu màn hình
+        btnCart2.setOnClickListener(v -> loadFragment(new CartFragment()));
+        btnProfile.setOnClickListener(v -> loadFragment(new ProfileFragment()));
+
+        // Xử lý tìm kiếm
+        edtSearch.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_SEARCH) {
+                String searchQuery = edtSearch.getText().toString().trim();
+                if (!searchQuery.isEmpty()) {
+                    Log.d("SearchFragment", "Search query: " + searchQuery);
+                    onSearch(searchQuery);
+                }
+                return true;
+            }
+            return false;
+        });
+
+        // Gọi API để load dữ liệu
         loadCategories();
         loadAllProducts();
         loadPopularProducts();
@@ -92,7 +97,6 @@ public class HomeActivity extends AppCompatActivity {
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
-                // Quay về màn hình chính
                 getSupportFragmentManager().popBackStackImmediate(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
                 return true;
             } else if (id == R.id.nav_search) {
@@ -107,8 +111,6 @@ public class HomeActivity extends AppCompatActivity {
             }
             return false;
         });
-
-
     }
 
     private void loadAllProducts() {
@@ -199,49 +201,40 @@ public class HomeActivity extends AppCompatActivity {
                 .addToBackStack(null)
                 .commit();
     }
+
     public void onSearch(String searchQuery) {
         saveSearch(searchQuery);
 
-        // Tạo Bundle để truyền dữ liệu tìm kiếm
         Bundle bundle = new Bundle();
-        bundle.putString("searchQuery", searchQuery);  // Truyền từ khóa tìm kiếm
+        bundle.putString("searchQuery", searchQuery);
 
-        // Chuyển sang SearchResultFragment và truyền dữ liệu
         SearchResultFragment searchResultFragment = new SearchResultFragment();
-        searchResultFragment.setArguments(bundle);  // Gửi Bundle vào Fragment
+        searchResultFragment.setArguments(bundle);
 
-        // Tiến hành thay đổi fragment
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction(); // Thay thế getParentFragmentManager() bằng getSupportFragmentManager()
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentContainer, searchResultFragment);
+        transaction.addToBackStack(null);
 
-        transaction.addToBackStack(null);  // Cho phép quay lại fragment trước đó
-
-        // Delay 200ms để cảm giác tự nhiên hơn
         new android.os.Handler().postDelayed(() -> {
             transaction.commit();
         }, 400);
     }
 
     private void saveSearch(String searchQuery) {
-        SharedPreferences preferences = this.getSharedPreferences("RecentSearches", Context.MODE_PRIVATE);  // Thay getActivity() bằng this
+        SharedPreferences preferences = this.getSharedPreferences("RecentSearches", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
-        // Lấy danh sách tìm kiếm gần đây đã lưu
         Set<String> recentSearches = preferences.getStringSet("recent_searches", new HashSet<>());
-        Log.d("SearchFragment", "Current saved searches before adding new: " + recentSearches);  // Log để kiểm tra danh sách cũ
+        Log.d("SearchFragment", "Current saved searches before adding new: " + recentSearches);
 
-        // Thêm tìm kiếm mới vào danh sách
         recentSearches.add(searchQuery);
 
-        // Giới hạn danh sách chỉ giữ 4 tìm kiếm gần nhất
         if (recentSearches.size() > 4) {
-            recentSearches.remove(recentSearches.iterator().next());  // Xóa tìm kiếm cũ nhất
+            recentSearches.remove(recentSearches.iterator().next());
         }
 
-        // Lưu lại danh sách tìm kiếm
-        boolean success = editor.putStringSet("recent_searches", recentSearches).commit(); // Sử dụng commit() thay vì apply()
+        boolean success = editor.putStringSet("recent_searches", recentSearches).commit();
         Log.d("SearchFragment", "Save successful: " + success);
         Log.d("SearchFragment", "Updated saved searches after adding: " + recentSearches);
     }
-
 }

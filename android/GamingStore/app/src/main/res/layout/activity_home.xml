@@ -126,7 +126,7 @@
         app:srcCompat="@drawable/icon_notification" />
 
     <ImageView
-        android:id="@+id/imageView38"
+        android:id="@+id/btnCart2"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginTop="36dp"
@@ -137,13 +137,13 @@
         app:srcCompat="@drawable/icon_cart" />
 
     <ImageView
-        android:id="@+id/imageView39"
+        android:id="@+id/btnProfile"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toEndOf="@+id/imageView38"
+        app:layout_constraintStart_toEndOf="@+id/btnCart2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_account" />
 
@@ -262,7 +262,7 @@
         tools:listitem="@layout/item_product" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPopular"
+        android:id="@+id/rvWishlist"
         android:layout_width="394dp"
         android:layout_height="258dp"
         android:layout_marginTop="8dp"

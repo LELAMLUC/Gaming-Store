@@ -73,7 +73,7 @@ public class SearchRecentAdapter extends RecyclerView.Adapter<SearchRecentAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvName);
+            tvName = itemView.findViewById(R.id.tvProductName);
             deleteIcon = itemView.findViewById(R.id.delete_icon);
         }
     }

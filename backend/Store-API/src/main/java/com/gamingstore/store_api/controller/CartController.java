@@ -30,4 +30,14 @@ public class CartController {
         List<Cart> cartList = cartService.getCartByAccountId(accountId);
         return ResponseEntity.ok(cartList);
     }
+
+    @DeleteMapping("/remove/{accountId}/{productId}/{color}")
+    public ResponseEntity<Boolean> removeItemFromCart(
+            @PathVariable Long accountId,
+            @PathVariable Long productId,
+            @PathVariable String color) {
+
+        cartService.removeItemFromCart(accountId, productId, color);
+        return ResponseEntity.ok(true);
+    }
 }

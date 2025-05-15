@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="360dp"
-    android:layout_height="70dp"
+    android:layout_width="340dp"
+    android:layout_height="60dp"
     android:layout_margin="8dp"
-    android:background="@drawable/khung_item_checkout"
+    android:background="@drawable/khung_orders"
     android:padding="8dp">
 
     <!-- Image sản phẩm -->
@@ -13,9 +13,10 @@
     <!-- Icon trash -->
 
     <TextView
-        android:id="@+id/tvPriceTotal"
+        android:id="@+id/tvProductPriceTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="2dp"
         android:text="$14.69"
         android:textColor="#0ABDE3"
@@ -24,7 +25,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imgProduct" />
+        app:layout_constraintStart_toEndOf="@+id/tvQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
 
     <ImageView
         android:id="@+id/imgProduct"
@@ -43,7 +45,7 @@
 
     <!-- Nút trừ -->
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvProductName"
         android:layout_width="260dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
@@ -64,12 +66,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Qty: 1"
         android:textColor="#CCCCCC"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imgProduct"
-        app:layout_constraintTop_toBottomOf="@id/tvName" />
+        app:layout_constraintTop_toBottomOf="@id/tvProductName" />
 
     <!-- Tổng giá bên phải -->
 

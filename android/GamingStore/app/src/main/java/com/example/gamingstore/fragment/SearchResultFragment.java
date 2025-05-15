@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gamingstore.R;
 import com.example.gamingstore.adapter.PopularProductAdapter;
-import com.example.gamingstore.adapter.ProductAdapter;
 import com.example.gamingstore.api.ApiService;
 import com.example.gamingstore.api.RetrofitClient;
 import com.example.gamingstore.model.Product;
@@ -24,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchResultFragment extends Fragment {
+public class SearchResultFragment extends BaseFragment {
 
     private RecyclerView recyclerView;
     private PopularProductAdapter adapter;
@@ -45,7 +44,7 @@ public class SearchResultFragment extends Fragment {
         Log.d("SearchResultFragment", "Search query received: " + searchQuery);
 
         // Khởi tạo RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerPopular);
+        recyclerView = view.findViewById(R.id.rvWishlist);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);  // 2 cột
         recyclerView.setLayoutManager(gridLayoutManager);
 

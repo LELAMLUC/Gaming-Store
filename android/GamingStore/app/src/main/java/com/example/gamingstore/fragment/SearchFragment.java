@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -32,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends BaseFragment {
 
     private EditText edtSearch;
     private ApiService apiService;
@@ -158,7 +157,7 @@ public class SearchFragment extends Fragment {
 
     // Hàm tải sản phẩm phổ biến từ API
     private void loadPopularProducts(View view) {
-        RecyclerView recyclerPopular = view.findViewById(R.id.recyclerPopular);  // Lấy RecyclerView mới cho sản phẩm phổ biến
+        RecyclerView recyclerPopular = view.findViewById(R.id.rvWishlist);  // Lấy RecyclerView mới cho sản phẩm phổ biến
         recyclerPopular.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Lấy ApiService từ RetrofitClient

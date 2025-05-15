@@ -14,13 +14,19 @@ import com.example.gamingstore.R;
 import com.example.gamingstore.model.CartItem;
 
 import java.util.List;
-
 public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.CheckoutViewHolder> {
 
     private List<CartItem> cartItemList;
+    private OnTotalPriceChangedListener totalPriceChangedListener;
 
-    public CheckoutAdapter(List<CartItem> cartItemList) {
+    public interface OnTotalPriceChangedListener {
+        void onTotalPriceChanged(double totalPrice);
+    }
+
+    public CheckoutAdapter(List<CartItem> cartItemList, OnTotalPriceChangedListener listener) {
         this.cartItemList = cartItemList;
+        this.totalPriceChangedListener = listener;
+        notifyTotalPrice(); // Tính tổng và gửi lần đầu
     }
 
     @NonNull
@@ -66,15 +72,25 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
         return cartItemList.size();
     }
 
+    // Hàm tính tổng giá và gửi về activity
+    public void notifyTotalPrice() {
+        double total = 0;
+        for (CartItem item : cartItemList) {
+            total += item.getProduct().getPrice() * item.getQuantity();
+        }
+        if (totalPriceChangedListener != null) {
+            totalPriceChangedListener.onTotalPriceChanged(total);
+        }
+    }
+
     public static class CheckoutViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvPriceTotal, tvQuantity;
         ImageView imgProduct;
 
         public CheckoutViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Lấy các view trong item_checkout.xml
-            tvName = itemView.findViewById(R.id.tvName);
-            tvPriceTotal = itemView.findViewById(R.id.tvPriceTotal);
+            tvName = itemView.findViewById(R.id.tvProductName);
+            tvPriceTotal = itemView.findViewById(R.id.tvProductPriceTotal);
             imgProduct = itemView.findViewById(R.id.imgProduct);
             tvQuantity = itemView.findViewById(R.id.tvQuantity);
         }

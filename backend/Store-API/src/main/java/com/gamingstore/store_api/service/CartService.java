@@ -6,6 +6,7 @@ import com.gamingstore.store_api.entity.Product;
 import com.gamingstore.store_api.repository.AccountRepository;
 import com.gamingstore.store_api.repository.CartRepository;
 import com.gamingstore.store_api.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,4 +53,15 @@ public class CartService {
     public List<Cart> getCartByAccountId(Long accountId) {
         return cartRepository.findByAccountId(accountId);
     }
+    @Transactional
+    public void removeItemFromCart(Long accountId, Long productId, String color) {
+        Account account = accountRepository.findById(accountId)
+                .orElseThrow(() -> new RuntimeException("Account không tồn tại"));
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Product không tồn tại"));
+
+        Optional<Cart> cartItem = cartRepository.findByAccountAndProductAndColor(account, product, color);
+        cartItem.ifPresent(cartRepository::delete);
+    }
+
 }

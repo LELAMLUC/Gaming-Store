@@ -10,7 +10,7 @@
 
 
     <ImageButton
-        android:id="@+id/btnCheckout3"
+        android:id="@+id/btnApplyCode"
         android:layout_width="111dp"
         android:layout_height="49dp"
         android:layout_marginTop="12dp"
@@ -140,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.864"
         app:layout_constraintStart_toEndOf="@+id/textView52"
-        app:layout_constraintTop_toBottomOf="@+id/imageView86" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCODPayment" />
 
     <TextView
         android:id="@+id/textView45"
@@ -383,7 +383,7 @@
         app:srcCompat="@drawable/khung_voucher" />
 
     <EditText
-        android:id="@+id/edtEmail4"
+        android:id="@+id/edtVoucher"
         android:layout_width="210dp"
         android:layout_height="48dp"
         android:background="@android:color/transparent"
@@ -407,8 +407,8 @@
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCheckout3"
-        app:layout_constraintEnd_toEndOf="@+id/btnCheckout3"
-        app:layout_constraintStart_toStartOf="@+id/btnCheckout3"
-        app:layout_constraintTop_toTopOf="@+id/btnCheckout3" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnApplyCode"
+        app:layout_constraintEnd_toEndOf="@+id/btnApplyCode"
+        app:layout_constraintStart_toStartOf="@+id/btnApplyCode"
+        app:layout_constraintTop_toTopOf="@+id/btnApplyCode" />
 </androidx.constraintlayout.widget.ConstraintLayout>

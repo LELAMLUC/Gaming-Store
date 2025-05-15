@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/khung_orders"
+    android:padding="8dp">
+
+    <!-- RecyclerView hiển thị sản phẩm -->
+
+    <!-- Viền xám trên giá và total -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWishlist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-10dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/imageView80"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_order_product" />
+
+    <ImageView
+        android:id="@+id/imageView80"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/rvWishlist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:srcCompat="@drawable/vien_xam" />
+
+    <!-- Text "Total" -->
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/imageView80"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp" />
+
+    <!-- Giá tổng -->
+    <TextView
+        android:id="@+id/tvProductPriceTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$14.69"
+        android:textColor="#0ABDE3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/imageView80"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp" />
+
+    <!-- Viền xám dưới -->
+    <ImageView
+        android:id="@+id/imageView84"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductPriceTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/vien_xam" />
+
+    <!-- Nút Details -->
+    <ImageButton
+        android:id="@+id/btnDetails"
+        android:layout_width="151dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/cyber_ripple"
+        android:contentDescription="@null"
+        android:foreground="@drawable/cyber_ripple"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView84"
+        app:srcCompat="@drawable/bg_edit_account" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textColor="#0ABDE3"
+        app:layout_constraintTop_toTopOf="@id/btnDetails"
+        app:layout_constraintBottom_toBottomOf="@id/btnDetails"
+        app:layout_constraintStart_toStartOf="@id/btnDetails"
+        app:layout_constraintEnd_toEndOf="@id/btnDetails"
+        android:gravity="center" />
+
+
+
+    <!-- Nút Buy Again -->
+    <ImageButton
+        android:id="@+id/btnBuyAgain"
+        android:layout_width="151dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/cyber_ripple"
+        android:foreground="@drawable/cyber_ripple"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="@id/btnDetails"
+        app:layout_constraintStart_toEndOf="@id/btnDetails"
+        app:srcCompat="@drawable/khung_buy_again" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

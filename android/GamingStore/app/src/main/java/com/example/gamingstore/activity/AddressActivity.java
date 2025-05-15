@@ -19,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddressActivity extends AppCompatActivity {
+public class AddressActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

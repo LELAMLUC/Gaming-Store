@@ -4,12 +4,15 @@ import com.example.gamingstore.model.Account;
 import com.example.gamingstore.model.Address;
 import com.example.gamingstore.model.CartItem;
 import com.example.gamingstore.model.Category;
+import com.example.gamingstore.model.Order;
 import com.example.gamingstore.model.Product;
+import com.example.gamingstore.model.Voucher;
 
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -75,5 +78,36 @@ public interface ApiService {
             @Path("name") String name,
             @Path("phone") String phone,
             @Path("address") String address
+    );
+    @GET("api/vouchers/apply/{code}")
+    Call<Voucher> applyVoucher(@Path("code") String code);
+
+    @POST("api/orders/create/{accountId}/{subtotal}/{shippingFee}/{discount}/{total}/{deliveryMethod}")
+    Call<Boolean> createOrder(
+            @Path("accountId") long accountId,
+            @Path("subtotal") double subtotal,
+            @Path("shippingFee") double shippingFee,
+            @Path("discount") double discount,
+            @Path("total") double total,
+            @Path("deliveryMethod") String deliveryMethod
+    );
+    @GET("api/orders/take/{accountId}")
+    Call<List<Order>> getOrdersByAccountId(@Path("accountId") long accountId);
+    @GET("api/orders/{orderId}")
+    Call<Order> getOrderById(@Path("orderId") long orderId);
+    @GET("/api/wishlist/add/{accountId}/{productId}")
+    Call<Void> addWishlist(@Path("accountId") long accountId, @Path("productId") long productId);
+
+    @GET("/api/wishlist/remove/{accountId}/{productId}")
+    Call<Void> removeWishlist(@Path("accountId") long accountId, @Path("productId") long productId);
+    @GET("api/wishlist/{accountId}")
+    Call<List<Product>> getWishlistByAccountId(@Path("accountId") long accountId);
+    @GET("api/wishlist/check/{accountId}/{productId}")
+    Call<Boolean> isWishlisted(@Path("accountId") long accountId, @Path("productId") long productId);
+    @DELETE("api/cart/remove/{accountId}/{productId}/{color}")
+    Call<Boolean> removeFromCart(
+            @Path("accountId") long accountId,
+            @Path("productId") long productId,
+            @Path("color") String color
     );
 }
